@@ -32,7 +32,7 @@ export const NavLink = styled(Link)`
 	padding: 1rem;
 	transition: 0.3s;
 	:hover {
-		color: ${$brandGreen};
+		/* hover color*/
 	}
 	@media (max-width: 800px) {
 		display: none;
