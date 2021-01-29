@@ -7,11 +7,16 @@ const initialState = {
     favorite: [],
 };
 
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default function(state = initialState, action) {
+export default function(state = initialState, action) { //Function that uses the initialState as a default value
+    //The reducer looks at the action type of field to decide what happens.
     switch (action.type) {
+        //Performs an action based our different actions available.
         case SET_FAVORITE:
+            //Reducer function being used to handle the logic update for SET_FAVORITE 
             return {
+                //Returns the new state with data our data for our SET_FAVORITE action
                 ...state,
                 favorite: action.payload,
             };
