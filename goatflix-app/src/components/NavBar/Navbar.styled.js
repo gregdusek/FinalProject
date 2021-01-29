@@ -25,3 +25,25 @@ export const StyledNavbar = styled.div`
             transform: translateY(-4.8rem);
 		`};
 `;
+
+export const NavLink = styled(Link)`
+	text-decoration: none;
+	font-weight: 600;
+	padding: 1rem;
+	transition: 0.3s;
+	:hover {
+		color: ${$brandGreen};
+	}
+	@media (max-width: 800px) {
+		display: none;
+	}
+`;
+
+export const OptionsContainer = styled.div`
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 1rem;
+	margin: 0;
+	margin-right: 3rem;
+`;

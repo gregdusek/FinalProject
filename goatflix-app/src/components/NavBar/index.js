@@ -13,8 +13,8 @@ import {resetMoviesList} from '../../actions/listActions';
 import { StyledNavbar, NavLink, OptionsContainer } from './Navbar.styled.js';
 import Logo from '../Logo';
 import SearchButton from '../SearchButton';
-import UnauthDropdown from '../UnauthDropdown';
-import AuthDropdown from '../AuthDropdown';
+import UnauthDropdown from '../UnauthMenu';
+import AuthDropdown from '../UnauthMenu';
 
 
 class NavBar extends Component {
