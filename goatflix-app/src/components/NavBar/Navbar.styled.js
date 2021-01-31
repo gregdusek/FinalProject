@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const StyledNavbar = styled.div`
+export const StyledNavBar = styled.div`
+        background-color: rgb(30, 30, 30);
         display: flex;
-        height: 4.8rem;
+        height: 8rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-size: calc(10px + 2vmin);
-        color: #111;
+        color: rgb(255, 255, 255,);
         width: 100%;
         transition: 0.3s;
         z-index: 999;
@@ -27,12 +28,13 @@ export const StyledNavbar = styled.div`
 `;
 
 export const NavLink = styled(Link)`
+    color: rgb(255, 255, 255);
 	text-decoration: none;
 	font-weight: 600;
 	padding: 1rem;
 	transition: 0.3s;
 	:hover {
-		/* hover color*/
+		color: #ffb500;
 	}
 	@media (max-width: 800px) {
 		display: none;
