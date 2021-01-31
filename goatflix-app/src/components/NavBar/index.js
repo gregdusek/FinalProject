@@ -10,9 +10,9 @@ import {logoutUser} from '../../actions/authActions';
 import {resetMoviesList} from '../../actions/listActions';
 
 //Style dependencies
-import { StyledNavbar, NavLink, OptionsContainer } from './Navbar.styled.js';
+import { StyledNavBar, NavLink, OptionsContainer } from './NavBar.styled.js';
 import Logo from '../Logo';
-import SearchButton from '../SearchButton';
+import SearchButton from '../Search';
 import UnauthDropdown from '../UnauthMenu';
 import AuthDropdown from '../UnauthMenu';
 
@@ -58,7 +58,7 @@ class NavBar extends Component {
         const { sticky } = this.state;
         
         return (
-			<StyledNavbar ref={this.navRef} sticky={sticky}>
+			<StyledNavBar ref={this.navRef} sticky={sticky}>
 				<Link to="/">
 					<Logo onClick={resetMoviesList} />
 				</Link>
@@ -74,7 +74,7 @@ class NavBar extends Component {
 						</Fragment>
 					)}
 				</OptionsContainer>
-			</StyledNavbar>
+			</StyledNavBar>
 		);
 	}
 
