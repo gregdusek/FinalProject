@@ -19,8 +19,9 @@ export const StyledSort = styled.div`
 
 export const SortButton = styled.button`
 	font-size: 1.2rem;
+	font-weight: bold;
 	background: rgba(30, 30, 30);
-	width: 30%;
+	width: 15%;
 	height: 40px;
 	border-radius: 10px;
 	border: none;
