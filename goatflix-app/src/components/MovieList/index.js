@@ -30,10 +30,10 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 	};
 
 	const {
-		// status,
-		// data,
-		// results,
-		// error,
+		status,
+		data,
+		results,
+		error,
 		isFetching,
 		isFetchingMore,
 		fetchMore,
@@ -64,7 +64,7 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 	const loadMoreButtonRef = useRef();
 	useIntersectionObserver({
 		target: loadMoreButtonRef,
-		onIntersect: fetchMore,
+		onIntersect: () => fetchMore,
 		rootMargin: '500px',
 	});
 
@@ -86,6 +86,7 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 		topComponent = <h1>Favorite Movies for {user.name}</h1>;
 	}
 	// console.log(initialMovieList)
+	
 	return (
 		<>
 			{showFavorite && !isAuthenticated && <Redirect to="/login" />}
@@ -131,13 +132,14 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 					No movies found!
 				</h2>
 			)}
-
+			
 			{isFetchingMore}
 			{canFetchMore && (
 				<LoadMore type="button" ref={loadMoreButtonRef}>
 					Load more
 				</LoadMore>
 			)}
+			{/* {console.log(initialState)} */}
 		</>
 	);
 };

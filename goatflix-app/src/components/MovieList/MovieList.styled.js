@@ -1,12 +1,16 @@
 import styled from 'styled-components';
+import {$medYellow, $medGrey, $darkGrey, $justWhite} from '../../utilities/colors.styled';
 
 export const MovieGrid = styled.div`
 	margin: 0 auto;
 	display: grid;
-	padding: 4rem 1rem;
+	justify-content: center;
+	padding: 2rem;
 	grid-template-columns: repeat(5, 1fr);
-	grid-row-gap: 2rem;
-	max-width: 1250px;
+	grid-template-rows: repeat(4, 3fr);
+	grid-column-gap: 3rem;
+	grid-row-gap: 3rem;
+	max-width: 1080px;
 	@media (max-width: 1020px) {
 		grid-template-columns: repeat(4, 1fr);
 	}
@@ -23,9 +27,9 @@ export const MovieGrid = styled.div`
 
 export const GenreTab = styled.div`
 	display: inline-block;
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.6);
 	border-radius: 3px;
-	color: #ddd;
+	color: #ffb500;
 	padding: 0.2rem 0.4rem;
 	margin: 0.1rem;
 	text-align: center;
@@ -45,11 +49,13 @@ export const LoadMore = styled.div`
 	border-radius: 22px;
 	background: #111;
 	transition: 0.3s;
-	color: ${({ loading }) => (loading ? (40,40,40) : '#ffb500')};
+	color: ${({ loading }) => (loading ? $medGrey : $medYellow)};
 	cursor: ${({ loading }) => (loading ? 'wait' : 'pointer')};
+
 	&:hover {
-		color: ${({ loading }) => (loading ? (40,40,40) : '#ffb500')};
+		color: ${({ loading }) => (loading ? $medGrey  : '#fff')};
 	}
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
