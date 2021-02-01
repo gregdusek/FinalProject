@@ -11,7 +11,7 @@ import {
 
 // Sets our initial states for our app.
 const initialState = {
-	films: [],
+	movies: [],
 	page: 1,
 	searchQuery: '',
 	loading: false,
