@@ -48,11 +48,16 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 	
 	// console.log(data.pages[0].results)
 	// initialMovieList.forEach(movies => console.log(movies))
-	//data.forEach  - changed this to movies.forEach because "data" isn't declared anywhere.
-	// initialMovieList.forEach(movie => movies.push(movie));
+
+	// data.forEach(group => group.results.forEach(movie => movies.push(movie))); ----> 
+
+	// The line of code above was returning "TypeError: Cannot read property 'forEach' of undefined."
+	// The reason for the error is because the data had not been set to a state and therefore could not
+	// be accessed by our forEach function, even though a console.log would return the data.
+	// Used our the initialState I setup and stored the data in that state.
 	initialState.forEach(movie => movies.push(movie));
-	// data.forEach(group => group.results.forEach(movie => movies.push(movie)));
-	// data.forEach(group => group.results.forEach(movie => movies.push(movie)));
+
+
 	// console.log(data)
 	const { user, isAuthenticated } = useSelector(state => state.auth);
 
