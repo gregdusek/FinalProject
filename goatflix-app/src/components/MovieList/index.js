@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { useInfiniteQuery } from 'react-query';
@@ -12,6 +12,8 @@ import genres from '../genres';
 
 const MovieList = ({ match, showFavorite, ...props }) => {
 	const [searchQuery, setSearchQuery] = useState('');
+	// const [initialMovieList, setInitialMovieList] = useState([]);
+	const [initialState, setInitialState] = useState([]);
 	const [sortBy, setSortBy] = useState('popularity.desc');
 	let voteCount = 100;
 	// Require at least 500 votes for the 'top rated' category
@@ -22,14 +24,16 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 			? `https://api.themoviedb.org/3/search/movie?api_key=f1b89107537867c1b021fa9fe5da19b8&language=en-US&query=${searchQuery}&page=${page}&include_adult=false`
 			: `https://api.themoviedb.org/3/discover/movie?api_key=f1b89107537867c1b021fa9fe5da19b8&language=en-US&sort_by=${sortBy}&include_adult=false&include_video=false&page=${page}&vote_count.gte=${voteCount}`;
 		const { data } = await axios.get(apiURL);
-		return data;
+		// setInitialMovieList(data.results)
+		setInitialState(data.results)
+		// return data;
 	};
 
 	const {
-		status,
-		data,
-		results,
-		error,
+		// status,
+		// data,
+		// results,
+		// error,
 		isFetching,
 		isFetchingMore,
 		fetchMore,
@@ -42,9 +46,13 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 
 	const movies = [];
 	
-	// console.log(data)
+	// console.log(data.pages[0].results)
+	// initialMovieList.forEach(movies => console.log(movies))
 	//data.forEach  - changed this to movies.forEach because "data" isn't declared anywhere.
-	movies.forEach(group => group.results.forEach(movie => movies.push(movie)));
+	// initialMovieList.forEach(movie => movies.push(movie));
+	initialState.forEach(movie => movies.push(movie));
+	// data.forEach(group => group.results.forEach(movie => movies.push(movie)));
+	// data.forEach(group => group.results.forEach(movie => movies.push(movie)));
 	// console.log(data)
 	const { user, isAuthenticated } = useSelector(state => state.auth);
 
@@ -72,6 +80,7 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 	} else {
 		topComponent = <h1>Favorite Movies for {user.name}</h1>;
 	}
+	// console.log(initialMovieList)
 	return (
 		<>
 			{showFavorite && !isAuthenticated && <Redirect to="/login" />}
@@ -112,7 +121,7 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 			{!isFetching && !movies.length && (
 				<h2
 					id="movie-results"
-					style={{ position: 'relative', top: '-4rem', fontWeight: 200 }}
+					style={{ position: 'relative', top: '-4rem', fontWeight: 500 }}
 				>
 					No movies found!
 				</h2>
