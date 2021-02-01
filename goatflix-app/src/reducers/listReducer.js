@@ -1,6 +1,6 @@
 import {
     SET_MOVIE_LIST, 
-    SET_TV_LIST, 
+    // SET_TV_LIST, 
     SET_LIST_PAGE,
     SET_LIST_SEARCH, 
     SET_LIST_SORT, 
@@ -42,19 +42,19 @@ export default (state = initialState, action) => {
 				loading: false,
             };
             
-        case SET_TV_LIST:
-            return {
-                ...state,
-                tv: action.payload.results,
-                totalPages: action.payload.total_pages,
-                loading: false,
-            };
+        // case SET_TV_LIST:
+        //     return {
+        //         ...state,
+        //         tv: action.payload.results,
+        //         totalPages: action.payload.total_pages,
+        //         loading: false,
+        //     };
 
 		case ADD_TO_LIST:
 			return {
 				...state,
                 movies: [...state.movies, ...action.payload.results],
-                tv: [...state.tv, ...action.payload.results],
+                // tv: [...state.tv, ...action.payload.results],
 				loadingMore: false,
 				page: state.page + 1,
             };
