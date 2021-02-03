@@ -50,7 +50,7 @@ if (localStorage.jwtToken) {
 function App() {
     axios({
         method: "GET",
-        url: "http://localhost:3000/",
+        url: "(https://goatflix.herokuapp.com/api/resource)",
         headers: {
             "Content-Type": "application/json"
         }
