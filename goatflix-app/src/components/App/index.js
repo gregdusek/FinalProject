@@ -2,7 +2,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-import axios from "axios";
 
 // Action dependencies
 import setAuthToken from '../../utilities/setAuthToken';
@@ -47,18 +46,7 @@ if (localStorage.jwtToken) {
 
 
 
-function App() {
-    axios({
-        method: "GET",
-        url: "(https://goatflix.herokuapp.com/api/resource)",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(res => {
-        console.log(res.data.message);
-    });
-
-    return(
+const App = () => (
       <Router>
           <StyledApp>
               <GlobalStyle />
@@ -81,7 +69,6 @@ function App() {
               </Switch>
           </StyledApp>
       </Router>
-    );
-};
+);
 
 export default App;
