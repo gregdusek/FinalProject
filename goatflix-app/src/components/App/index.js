@@ -2,6 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
+import axios from "axios";
 
 // Action dependencies
 import setAuthToken from '../../utilities/setAuthToken';
@@ -46,7 +47,18 @@ if (localStorage.jwtToken) {
 
 
 
-const App = () => (
+function App() {
+    axios({
+        method: "GET",
+        url: "http://localhost:3000/",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(res => {
+        console.log(res.data.message);
+    });
+
+    return(
       <Router>
           <StyledApp>
               <GlobalStyle />
@@ -69,6 +81,7 @@ const App = () => (
               </Switch>
           </StyledApp>
       </Router>
-);
+    );
+};
 
 export default App;
