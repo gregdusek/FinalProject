@@ -11,8 +11,8 @@ export const GlobalStyle = createGlobalStyle`
     outline-color: #ffb500;
   }
   body {
-    background: rgb(75, 75, 75);
-    color: rgb (255, 255, 255);
+    background: rgb(60, 60, 60);
+    color: rgb (70, 70, 70);
     margin: 0;
     padding: 0;
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

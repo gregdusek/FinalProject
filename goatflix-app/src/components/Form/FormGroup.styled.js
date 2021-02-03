@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const StyledFormGroup = styled.label`
 	display: block;
 	margin: 2rem 0;
-	display: block;
 	text-align: center;
 	margin-bottom: 1rem;
 	position: relative;

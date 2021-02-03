@@ -58,36 +58,36 @@ export const removeFavorite = movieID => dispatch =>
             })
         );
 
-// // Adds a tv show to the active user favorites list.
-// export const favoriteTV = tvShow => dispatch =>
-// axios
-//     .patch(`/api/favorites/add`, tvShow)
-//     .then(res => 
-//             dispatch({
-//                 type: ADD_FAVORITE,
-//                 payload: res.data,
-//             })
-//     )
-//     .catch(error =>
-//             dispatch({
-//                 type: SET_ERRORS,
-//                 payload: error.response.data,
-//             })
-//     );
+// Adds a tv show to the active user favorites list.
+export const favoriteTV = tvShow => dispatch =>
+axios
+    .patch(`/api/favorites/add`, tvShow)
+    .then(res => 
+            dispatch({
+                type: ADD_FAVORITE,
+                payload: res.data,
+            })
+    )
+    .catch(error =>
+            dispatch({
+                type: SET_ERRORS,
+                payload: error.response.data,
+            })
+    );
 
-// // Remove a tv show from the active user favorites list.
-// export const removeTV = tvID => dispatch =>
-// axios
-//     .delete(`/api/favorites/${tvID}`)
-//     .then(res => 
-//             dispatch({
-//                 type: DELETE_FAVORITE,
-//                 payload: res.data,
-//             })
-//     )
-//     .catch(error => 
-//             dispatch({
-//                 type: SET_ERRORS,
-//                 payload: error.response.data,
-//         })
-//     );
+// Remove a tv show from the active user favorites list.
+export const removeTV = tvID => dispatch =>
+axios
+    .delete(`/api/favorites/${tvID}`)
+    .then(res => 
+            dispatch({
+                type: DELETE_FAVORITE,
+                payload: res.data,
+            })
+    )
+    .catch(error => 
+            dispatch({
+                type: SET_ERRORS,
+                payload: error.response.data,
+        })
+    );

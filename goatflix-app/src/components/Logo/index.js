@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyledLogo, StyledGoat, StyledWords} from './Logo.styled';
 
+
+
 const Logo = () => {
 	return (
-		<StyledLogo>
+		<StyledLogo >
 			<StyledGoat 
 				id="goat" src="https://res.cloudinary.com/gregdusek/image/upload/v1609810374/GOATflix/goat_nnchqt.png" alt=""/>
 			<StyledWords 

@@ -1,8 +1,6 @@
 // Dependecy Packages
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
-// import { QueryClientProvider } from 'react-query';
 import jwt_decode from 'jwt-decode';
 
 // Action dependencies
@@ -49,8 +47,6 @@ if (localStorage.jwtToken) {
 
 
 const App = () => (
-    // <QueryClientProvider>
-	<Provider store={store}>
       <Router>
           <StyledApp>
               <GlobalStyle />
@@ -73,8 +69,6 @@ const App = () => (
               </Switch>
           </StyledApp>
       </Router>
-	</Provider>
-    // </QueryClientProvider>
 );
 
 export default App;

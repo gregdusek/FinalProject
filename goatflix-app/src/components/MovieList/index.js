@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 // import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useSelector} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { useInfiniteQuery } from 'react-query';
 import useIntersectionObserver from '../../utilities/useObserver';
@@ -10,7 +10,10 @@ import Sort from '../Sort';
 import Movie from '../Movie';
 import genres from '../genres';
 
-const MovieList = ({ match, showFavorite, ...props }) => {
+
+
+
+const MovieList = ({ match, showFavorite, ...props}) => {
 	const [searchQuery, setSearchQuery] = useState('');
 	// const [initialMovieList, setInitialMovieList] = useState([]);
 	const [initialState, setInitialState] = useState([]);
@@ -26,23 +29,39 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 		const { data } = await axios.get(apiURL);
 		// setInitialMovieList(data.results)
 		setInitialState(data.results)
+		// console.log(data.results);
 		// return data;
 	};
+	
+	// console.log(initialState)
 
 	const {
-		status,
-		data,
-		results,
-		error,
+		// status,
+		// data: pages,
+		// results,
+		// error,
+		// getFetchMore,
 		isFetching,
 		isFetchingMore,
 		fetchMore,
 		canFetchMore,
 	} = useInfiniteQuery(['movies', { searchQuery, sortBy }], fetchMovies, {
-		getFetchMore: lastGroup =>
-			lastGroup.total_pages > lastGroup.page ? lastGroup.page + 1 : null,
+		getFetchMore: (lastGroup, allPages) =>
+			 lastGroup.total_pages > lastGroup.page ? lastGroup.page + 1 : null, 
 	});
-	// console.log(data);
+	
+	// LoadMore = () => {
+	// 	const { credits } = this.props;
+	// 	const { movies } = this.state;
+	// 	if (castCount === credits.length) return;
+	// 	this.setState({ castCount: castCount + 10 });
+	// };
+	
+	// console.log(useInfiniteQuery);
+	// console.log(isFetching);
+	// console.log(isFetchingMore);
+	// console.log(fetchMore);
+	// console.log(canFetchMore)
 
 	const movies = [];
 	
@@ -57,14 +76,14 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 	// Used our the initialState I setup and stored the data in that state.
 	initialState.forEach(movie => movies.push(movie));
 
-
-	// console.log(data)
 	const { user, isAuthenticated } = useSelector(state => state.auth);
 
 	const loadMoreButtonRef = useRef();
 	useIntersectionObserver({
 		target: loadMoreButtonRef,
-		onIntersect: () => fetchMore,
+		onIntersect: fetchMore,
+		// enabled: canFetchMore,
+		enabled: isFetchingMore,
 		rootMargin: '500px',
 	});
 
@@ -78,8 +97,8 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 			? (topComponent = <Sort sortBy={sortBy} setSortBy={setSortBy} />)
 			: (topComponent = (
 					<>
-						<h3>Search term:</h3>
-						{searchQuery}
+						<h3 id="search-query" >Search term:</h3>
+						{/* {searchQuery}  */}
 					</>
 			  ));
 	} else {
@@ -127,7 +146,7 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 			{!isFetching && !movies.length && (
 				<h2
 					id="movie-results"
-					style={{ position: 'relative', top: '-4rem', fontWeight: 500 }}
+					style={{ position: 'relative', top: '2rem', fontWeight: 500 }}
 				>
 					No movies found!
 				</h2>
@@ -139,7 +158,7 @@ const MovieList = ({ match, showFavorite, ...props }) => {
 					Load more
 				</LoadMore>
 			)}
-			{/* {console.log(initialState)} */}
+			{/* {console.log(lastGroup)} */}
 		</>
 	);
 };

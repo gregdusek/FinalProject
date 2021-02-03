@@ -7,7 +7,7 @@ export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const DELETE_FAVORITE = 'DELETE_FAVORITE';
 
 export const SET_MOVIE_LIST = 'SET_MOVIE_LIST';
-// export const SET_TV_LIST = 'SET_TV_LIST';
+export const SET_TV_LIST = 'SET_TV_LIST';
 export const SET_LIST_PAGE = 'SET_LIST_PAGE';
 export const SET_LIST_SEARCH = 'SET_LIST_SEARCH';
 export const SET_LIST_SORT = 'SET_LIST_SORT';

@@ -28,9 +28,10 @@ export default function(state = initialState, action) { //Function that uses the
         case DELETE_FAVORITE:
             return {
                 ...state,
-                favorite: [...state.favorite.filter(movie => movie.id !== action.payload)],
+                favorite: [...state.favorite.filter(movie => movie.id !== action.payload), 
+                        ...state.favorite.filter(tvShow => tvShow.id !== action.payload)],
                 //, (tvShow => tvShow.id !== action.payload)
-                // favorite: [...state.favorite.filter(tvShow => tvShow.id !== action.payload)],
+            
             };
         default:
             return state;

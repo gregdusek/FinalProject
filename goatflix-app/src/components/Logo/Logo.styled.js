@@ -8,10 +8,10 @@ export const StyledLogo = styled.div`
 export const StyledGoat = styled.img`
 	margin-left: 1.2rem;
 	margin-top: 1rem;
-	max-height: 454px;
-	max-width: 473px;
-	height: 12vh;
-	width: auto;
+	max-height: 100vh;
+	max-width: auto;
+	height: 7rem;
+	
 `;
 
 

@@ -40,12 +40,12 @@ class Search extends Component {
 		const { onSubmit, history } = this.props;
 		return (
 			<SearchForm
-				data-testid="searchbutton-form"
+				id="searchbutton-form"
 				onSubmit={e => onSubmit(e, input, history)}
 				onClick={() => this.inputRef.current.focus()}
 			>
 				<SearchInput
-					data-testid="searchbutton-field"
+					id="searchbutton-field"
 					type="text"
 					value={input}
 					onChange={this.handleChange}

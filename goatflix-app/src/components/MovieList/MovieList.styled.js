@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import {$medYellow, $medGrey, $darkGrey, $justWhite} from '../../utilities/colors.styled';
+import {$medYellow, $medGrey, } from '../../utilities/colors.styled';
 
 export const MovieGrid = styled.div`
 	margin: 0 auto;
 	display: grid;
 	justify-content: center;
-	padding: 2rem;
+	padding: 4rem;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: repeat(4, 3fr);
 	grid-column-gap: 3rem;
@@ -27,7 +27,7 @@ export const MovieGrid = styled.div`
 
 export const GenreTab = styled.div`
 	display: inline-block;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(, 0, 0, 0.6);
 	border-radius: 3px;
 	color: #ffb500;
 	padding: 0.2rem 0.4rem;
