@@ -65,7 +65,7 @@ app.engine('jsx', require('express-react-views').createEngine());
 // =======================================
 app.use('/api/auth', authRoutes);
 app.use('/api/favorites', favoriteRoutes);
-app.use('/api/resource', resourceController)
+
 
 const PORT = process.env.PORT || 3000;
 
