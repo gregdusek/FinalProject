@@ -67,7 +67,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/favorites', favoriteRoutes);
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT, () => {
 	console.info(`Listening on port ${port}`);
