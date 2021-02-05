@@ -69,9 +69,9 @@ app.use('/api/favorites', favoriteRoutes);
 
 const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, () => {
-	console.info(`Listening on port ${port}`);
-});
+const server = app.listen(PORT, '0.0.0.0');
+console.info(`Listening on port ${port}`);
+
 
 process.on('uncaughtException', () => server.close());
 
