@@ -117,7 +117,7 @@ const MovieList = ({ match, showFavorite, ...props}) => {
 					<Movie key={movie.id} movie={movie}>
 						<h3 id="movieposter-title">{movie.title}</h3>
 						<h5 id="movieposter-year">
-							{movie.release_date[0]}
+							{movie.release_date && movie.release_date.split('_')[0]}
 						</h5>
 						<GenreList>
 							{movie.genre_ids &&
