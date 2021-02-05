@@ -11,7 +11,7 @@ import setAuthToken from '../utilities/setAuthToken';
 //Register the user
 export const registerUser = (userData, history) => dispatch => 
     axios
-        .post('api/auth/register', userData)
+        .post('backend-api/routes/auth/register', userData)
         .then(() => history.push('/login'))
         .catch(error =>
             dispatch({
@@ -23,7 +23,7 @@ export const registerUser = (userData, history) => dispatch =>
 //Login - get user token
 export const loginUser = (userData, history) => dispatch =>
     axios
-        .post('api/auth/login', userData)
+        .post('backend-api/routes/auth/login', userData)
         .then(response => {
             //Save to local storage
             const {token} = response.data;
@@ -37,7 +37,7 @@ export const loginUser = (userData, history) => dispatch =>
         })
         .then(() => 
             //Redirects to favorites list
-            history.push('/favorites')
+            history.push('/backend-api/favorites')
         )
         .catch(error => 
             dispatch({
