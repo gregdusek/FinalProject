@@ -3,7 +3,7 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const User = require('../models/User');
+const User = require('./models/User');
 
 const validateRegisterInput = require('../utilities/validators.js').register;
 const validateLoginInput = require('../utilities/validators.js').login;
